@@ -50,8 +50,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: alertsdilip@gmail.com
-    password: alertsdilip123
+    username: xyz@gmail.com
+    password:
     properties.mail.smtp.auth:  true
     properties.mail.smtp.starttls.enable: true
 
