@@ -28,7 +28,7 @@ import java.nio.file.Paths;
 /**
  * Created by z001qgd on 1/13/18.
  */
-@ActiveProfiles("dev")
+@ActiveProfiles("mock")
 @RunWith(CamelSpringBootRunner.class)
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
