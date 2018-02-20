@@ -1,15 +1,14 @@
 package com.learncamel.routes;
 
 import com.learncamel.exception.DataException;
-import org.apache.camel.CamelContext;
-import org.apache.camel.CamelExecutionException;
-import org.apache.camel.EndpointInject;
-import org.apache.camel.ProducerTemplate;
+import org.apache.camel.*;
+import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.apache.camel.test.spring.CamelSpringBootRunner;
 import org.apache.camel.test.spring.DisableJmx;
 import org.apache.commons.io.FileUtils;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,17 +39,27 @@ public class SimpleCamelRouteMockTest extends CamelTestSupport{
     private CamelContext context;
 
     @Autowired
-    Environment environment;
-
-    @Autowired
     protected CamelContext createCamelContext() {
         return context;
     }
 
-    @Test
-    public void simpleTestCase(){
-        assertTrue(true);
+    @Autowired
+    private ProducerTemplate producerTemplate;
+
+    @Autowired
+    private ConsumerTemplate consumerTemplate;
+
+    @Override
+    protected RouteBuilder createRouteBuilder(){
+        return new SimpleCamelRoute();
     }
 
+    @Autowired
+    Environment environment;
+
+    @Before
+    public void setUp(){
+
+    }
 
 }
